@@ -36,3 +36,8 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+# Added by Dave
+gem 'bourbon'
+gem 'neat'
+gem 'refills'
