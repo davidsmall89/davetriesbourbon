@@ -2,12 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* header nav menu */
-.navigation {
-  $large-screen: em(860) !default;
-  $large-screen: $large-screen;
-  @include outer-container;
 
+.nav-menu-class {
+  @include outer-container;
 
 /*Mobile view*/
   .navigation-menu-button {
@@ -47,16 +44,6 @@
     }
   }
 
-  .nav-left {
-    @include media ($large-screen) {
-      float: left;
-    }
-  }
-
-  .nav-right {
-    float: right;
-  }
-
   ul.navigation-menu {
     clear: both;
     display: none;
@@ -76,7 +63,9 @@
     }
   }
 
-  
+  .nav-right {
+    float: right;
+  }
 /*Nav items*/
   ul li.nav-link {
     display: block;
@@ -100,24 +89,41 @@
   }
 }
 
+/* header nav menu */
+.navigation {
+  $large-screen: em(860) !default;
+  $large-screen: $large-screen;
+  @extend .nav-menu-class;
+
+}
+
 /* hero section */
 .homepage-hero {
   @include outer-container;
 
-
 }
+
+/* menu section */
 .crust_gourmet_menu {
   @include outer-container;
-}
-/* menu section */
-.crust_gourmet_menu_items {
-  @include outer-container;
 
-  display: block;
+  .affix_menu {
+    @extend .nav-menu-class;
+  }
 
-  .crust_menu_items{
-    @include span-columns(4);
-    @include omega;
+  .crust_gourmet_menu_items {
+    @include outer-container;
+    display: block;
+    @include display(flex);
+    @include flex-wrap(wrap);
+
+    .crust_menu_items{
+      @include span-columns(4);
+      @include omega;
+
+      @include flex-basis(20em);
+      @include flex-grow(0.5);
+    }
   }
 }
 
